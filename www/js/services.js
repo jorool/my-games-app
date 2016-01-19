@@ -4,7 +4,20 @@ angular.module('app.services', [])
 
 }])
 
-.service('BlankService', [function(){
+.factory('Platform', function($http){
 
-}]);
+  function getPlatforms(callback) {
+    $http.get('api/platforms.json')
+      .then(function (response) {
+        callback(response);
+      });
+  }
+
+  return {
+    getPlatforms: function (callback) {
+      return getPlatforms(callback);
+    }
+  }
+
+});
 

@@ -1,17 +1,21 @@
 angular.module('app.controllers', [])
 
-.controller('myGamesCtrl', function($scope) {
+    .controller('gamesCtrl', function ($scope) {
 
-})
+    })
 
-.controller('sobreCtrl', function($scope) {
+    .controller('aboutCtrl', function ($scope) {
 
-})
+    })
 
-.controller('minhasPlataformasCtrl', function($scope) {
+    .controller('platformsCtrl', function ($scope, Platform) {
 
-})
+        Platform.getPlatforms(function (response) {
+            $scope.platforms = response.data;
+        });
 
-.controller('configCtrl', function($scope) {
+    })
 
-})
+    .controller('configCtrl', function ($scope) {
+
+    });
