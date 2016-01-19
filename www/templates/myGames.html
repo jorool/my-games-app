@@ -1,0 +1,40 @@
+<ion-view title="Meus Games">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <button class="button button-stable button-block  icon-left ion-android-add">Inserir jogo</button>
+        <form class="list" action="teste" method="POST">
+            <label class="item item-input" name="title">
+                <span class="input-label">Título</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-select" name="platform">
+                <span class="input-label">Plataforma</span>
+                <select>
+                    <option>PS4</option>
+                    <option>PS3</option>
+                </select>
+            </label>
+            <ion-radio name="owned">Eu tenho</ion-radio>
+            <ion-toggle toggle-class="toggle-positive" name="borrowed">Emprestado</ion-toggle>
+            <div class="button-bar">
+                <button class="button button-assertive button-clear button-block ">Cancelar</button>
+                <button class="button button-positive button-block ">Inserir</button>
+            </div>
+        </form>
+        <div class="list card">
+            <div class="item item-divider">Título</div>
+            <div class="item item-body">
+                <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
+                    <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Título</div>
+            <div class="item item-body">
+                <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
+                    <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
