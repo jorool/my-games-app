@@ -1,8 +1,10 @@
 <ion-view title="Meus Games">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <button class="button button-stable button-block icon-left ion-android-add" ng-click="creatingGame = true">Inserir jogo</button>
+        <button class="button button-stable button-block icon-left ion-android-add" ng-hide="creatingGame"
+                ng-click="createGame()">Inserir jogo
+        </button>
 
-        <form class="list animated bounceInLeft" action="teste" method="POST" ng-show="creatingGame">
+        <div class="list" ng-show="creatingGame">
             <label class="item item-input" name="title">
                 <span class="input-label">Título</span>
                 <input type="text" placeholder="">
@@ -17,10 +19,10 @@
             <ion-radio name="owned">Eu tenho</ion-radio>
             <ion-toggle toggle-class="toggle-positive" name="borrowed">Emprestado</ion-toggle>
             <div class="button-bar">
-                <button class="button button-assertive button-clear button-block ">Cancelar</button>
-                <button class="button button-positive button-block ">Inserir</button>
+                <button class="button button-assertive button-clear button-block" ng-click="cancel()">Cancelar</button>
+                <button class="button button-positive button-block" ng-click="save()">Inserir</button>
             </div>
-        </form>
+        </div>
 
         <div class="list card">
             <div class="item item-divider">Título</div>

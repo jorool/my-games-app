@@ -1,18 +1,37 @@
 [
   {
+    "id": 1,
+    "name": "NES",
+    "manufacturer": "Nintendo"
+  },
+  {
+    "id": 2,
     "name": "PlayStation",
     "manufacturer": "Sony"
   },
   {
+    "id": 3,
     "name": "PlayStation 2",
     "manufacturer": "Sony"
   },
   {
-    "name": "PlayStation3",
+    "id": 4,
+    "name": "PlayStation 3",
     "manufacturer": "Sony"
   },
   {
+    "id": 5,
     "name": "PlayStation 4",
     "manufacturer": "Sony"
+  },
+  {
+    "id": 6,
+    "name": "SNES",
+    "manufacturer": "Nintendo"
+  },
+  {
+    "id": 7,
+    "name": "Atari 2600",
+    "manufacturer": "Atari"
   }
 ]

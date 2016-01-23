@@ -2,6 +2,21 @@ angular.module('app.controllers', [])
 
     .controller('gamesCtrl', function ($scope) {
 
+        $scope.createGame = function () {
+            $scope.creatingGame = true;
+            $scope.game = {};
+        };
+
+        $scope.cancel = function () {
+            console.log('cancel');
+            $scope.creatingGame = false;
+            $scope.game = undefined;
+        };
+
+        $scope.save = function () {
+            console.log('save');
+        };
+
     })
 
     .controller('aboutCtrl', function ($scope) {

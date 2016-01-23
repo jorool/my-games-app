@@ -1,3 +1,14 @@
 <ion-view title="Configurações">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
+    <ion-content overflow-scroll="true" class="has-header">
+
+        <ion-list>
+            <ion-item class="item-divider">Idioma</ion-item>
+            <ion-list>
+                <ion-radio ng-model="choice" ng-value="'A'">PT</ion-radio>
+                <ion-radio ng-model="choice" ng-value="'B'">EN</ion-radio>
+            </ion-list>
+        </ion-list>
+
+    </ion-content>
+
 </ion-view>

@@ -1,23 +1,27 @@
 angular.module('app.services', [])
 
-.factory('BlankFactory', [function(){
+    .factory('BlankFactory', [function () {
 
-}])
+    }])
 
-.factory('Platform', function($http){
+    .factory('Platform', function ($http) {
 
-  function getPlatforms(callback) {
-    $http.get('api/platforms.json')
-      .then(function (response) {
-        callback(response);
-      });
-  }
+        function getPlatforms(callback) {
+            $http.get('api/platforms.json')
+                .then(function (response) {
+                    callback(response);
+                });
+        }
 
-  return {
-    getPlatforms: function (callback) {
-      return getPlatforms(callback);
-    }
-  }
+        return {
+            getPlatforms: function (callback) {
+                return getPlatforms(callback);
+            },
 
-});
+            addPlatform: function () {
+
+            }
+        }
+
+    });
 

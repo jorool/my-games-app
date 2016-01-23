@@ -9,7 +9,7 @@ angular.module('app.routes', [])
         $stateProvider
 
             .state('menu', {
-                url: '/side-menu',
+                url: '/app',
                 abstract: true,
                 templateUrl: 'templates/menu.html'
             })
@@ -54,7 +54,6 @@ angular.module('app.routes', [])
                 }
             });
 
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/side-menu/games');
+        $urlRouterProvider.otherwise('/app/games');
 
     });
