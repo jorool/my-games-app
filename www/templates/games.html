@@ -7,20 +7,19 @@
         <div class="list" ng-show="creatingGame">
             <label class="item item-input" name="title">
                 <span class="input-label">Título</span>
-                <input type="text" placeholder="">
+                <input type="text" ng-model="game.name">
             </label>
             <label class="item item-select" name="platform">
                 <span class="input-label">Plataforma</span>
-                <select>
-                    <option>PS4</option>
-                    <option>PS3</option>
+                <select ng-model="game.platform" ng-options="p as p.name for p in platforms">
+                    <option value="">Select...</option>
                 </select>
             </label>
             <ion-radio name="owned">Eu tenho</ion-radio>
-            <ion-toggle toggle-class="toggle-positive" name="borrowed">Emprestado</ion-toggle>
+            <ion-toggle toggle-class="toggle-positive" name="borrowed" ng-model="game.borrowed">Emprestado</ion-toggle>
             <div class="button-bar">
                 <button class="button button-assertive button-clear button-block" ng-click="cancel()">Cancelar</button>
-                <button class="button button-positive button-block" ng-click="save()">Inserir</button>
+                <button class="button button-positive button-block" ng-click="save(game)">Inserir</button>
             </div>
         </div>
 

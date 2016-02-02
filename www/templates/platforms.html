@@ -1,14 +1,19 @@
 <ion-view title="Minhas Plataformas">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 
-        <label class="item item-input">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" placeholder="Pesquisar..." ng-model="search">
-        </label>
+        <!--<label class="item item-input">-->
+        <!--<i class="icon ion-search placeholder-icon"></i>-->
+        <!--<input type="search" placeholder="Pesquisar..." ng-model="search">-->
+        <!--</label>-->
 
         <ion-list ng-repeat="(key, value) in platforms | groupBy: 'manufacturer' ">
             <ion-item class="item-divider">{{key}}</ion-item>
-            <ion-toggle ng-repeat="platform in value" toggle-class="toggle-positive" ng-checked="true">{{platform.name}}</ion-toggle>
+            <ion-toggle ng-repeat="platform in value"
+                        toggle-class="toggle-positive"
+                        ng-model="platform.selected"
+                        ng-click="togglePlatform(platform)">
+                {{platform.name}}
+            </ion-toggle>
         </ion-list>
 
     </ion-content>

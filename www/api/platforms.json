@@ -33,5 +33,10 @@
     "id": 7,
     "name": "Atari 2600",
     "manufacturer": "Atari"
+  },
+  {
+    "id": 8,
+    "name": "PS Vita",
+    "manufacturer": "Sony"
   }
 ]
