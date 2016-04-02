@@ -1,0 +1,20 @@
+<div class="list" ng-show="creatingGame">
+
+    <label class="item item-input" name="title">
+        <span class="input-label">Título</span>
+        <input type="text" ng-model="game.title">
+    </label>
+
+    <label class="item item-select" name="platform">
+        <span class="input-label">Plataforma</span>
+        <select ng-model="game.platform" ng-options="p as p.name for p in platforms track by p.id">
+            <option value="">Select...</option>
+        </select>
+    </label>
+
+    <div class="button-bar">
+        <button class="button button-assertive button-clear button-block" ng-click="ctrl.cancel()">Cancelar</button>
+        <button class="button button-positive button-block" ng-click="ctrl.save(game)">Inserir</button>
+    </div>
+
+</div>

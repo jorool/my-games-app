@@ -1,24 +1,66 @@
 angular.module('app.controllers', [])
 
-    .controller('gamesCtrl', function ($scope, Platform) {
+    .controller('gamesCtrl', function ($scope, $ionicActionSheet, Platform, Game) {
 
         $scope.platforms = Platform.getMyPlatforms();
 
-        $scope.createGame = function () {
+        getGames();
+
+        this.modify = function (game) {
+            $ionicActionSheet.show({
+                buttons: [
+                    { text: '<b>Share</b>' },
+                    { text: 'Edit' }
+                ],
+                destructiveText: 'Delete',
+                titleText: 'Modify ' + game.title,
+                cancelText: 'Cancel',
+                cancel: function() {},
+                buttonClicked: function(index) {
+                    console.log(index);
+                    //0 -> share
+                    
+                    if (index == 1) editGame(game);
+                    
+                    return true;
+                },
+                destructiveButtonClicked: function() {
+                    Game.delete(game, function () {
+                        getGames();
+                    });
+                    return true;
+                }
+            });
+        };
+
+        this.createGame = function () {
             $scope.creatingGame = true;
             $scope.game = {};
         };
 
-        $scope.cancel = function () {
+        this.cancel = function () {
             $scope.creatingGame = false;
             delete $scope.game;
         };
 
-        $scope.save = function (game) {
-            console.log(game);
-            $scope.creatingGame = false;
-            delete $scope.game
+        this.save = function (game) {
+            Game.addGame(game, function () {
+                $scope.creatingGame = false;
+                delete $scope.game;
+                getGames();
+            });
         };
+        
+        function editGame(game) {
+            $scope.creatingGame = true;
+            $scope.game = game;
+        }
+
+        function getGames() {
+            Game.getMyGames(function (games) {
+                $scope.games = games;
+            });
+        }
 
     })
 
@@ -46,7 +88,6 @@ angular.module('app.controllers', [])
         }
 
         $scope.togglePlatform = function (platform) {
-
             if (platform.selected) {
                 Platform.addToMyPlatforms(platform, function () {
                     $ionicPopup.alert({
@@ -63,7 +104,6 @@ angular.module('app.controllers', [])
                     });
                 });
             }
-
         };
 
         loadPlatforms();

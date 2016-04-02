@@ -1,6 +1,69 @@
 angular.module('app.services', [])
 
-    .factory('BlankFactory', [function () {
+    .factory('Game', [function () {
+
+        function generateId() {
+            var id = '';
+            while (id.length < 10) {
+                id += String.fromCharCode(Math.floor(Math.random() * 64) + 32);
+            }
+            return id;
+        }
+
+        function addGame(game, callback) {
+            var games = JSON.parse(localStorage.getItem('my-games-games'));
+            if (!games)
+                games = [];
+
+            if (!game.id)
+                game.id = generateId();
+
+            games.push(game);
+
+            localStorage.setItem('my-games-games', JSON.stringify(games));
+
+            callback();
+        }
+
+        function getMyGames(callback) {
+            var games = JSON.parse(localStorage.getItem('my-games-games'));
+            if (games) {
+                callback(games);
+            } else {
+                callback([]);
+            }
+        }
+
+        function deleteGame(game, callback) {
+             var games = JSON.parse(localStorage.getItem('my-games-games'));
+
+            var index = -1;
+            angular.forEach(games, function (g) {
+                if (g.id === game.id)
+                    index = games.indexOf(g);
+            });
+
+            games.splice(index, 1);
+
+            localStorage.setItem('my-games-games', JSON.stringify(games));
+
+            callback();
+        }
+
+        return {
+
+            addGame: function (game, callback) {
+                addGame(game, callback);
+            },
+
+            getMyGames: function (callback) {
+                return getMyGames(callback);
+            },
+
+            delete: function (game, callback) {
+                deleteGame(game, callback);
+            }
+        }
 
     }])
 
@@ -57,3 +120,23 @@ angular.module('app.services', [])
         }
 
     });
+
+    // .factory('$localstorage', ['$window', function ($window) {
+    //     return {
+    //         set: function (key, value) {
+    //             $window.localStorage[key] = value;
+    //         },
+    //
+    //         get: function (key, defaultValue) {
+    //             return $window.localStorage[key] || defaultValue;
+    //         },
+    //
+    //         setObject: function (key, value) {
+    //             $window.localStorage[key] = JSON.stringify(value);
+    //         },
+    //
+    //         getObject: function (key) {
+    //             return JSON.parse($window.localStorage[key] || '{}');
+    //         }
+    //     }
+    // }]);
