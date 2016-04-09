@@ -6,15 +6,14 @@
 
         <ng-include src="'templates/game-form.html'"></ng-include>
 
-        <div class="list card" ng-repeat="g in games">
-            <div class="item item-divider item-icon-right">
+        <div class="list" ng-repeat="g in games track by g.id">
+            <div class="item item-divider">
+                {{g.platform.name}}
+
+            </div>
+            <div class="item item-icon-right">
                 {{g.title}}
                 <a class="button button-icon icon ion-more" style="transform: rotate(90deg)" ng-click="ctrl.modify(g)"></a>
-            </div>
-            <div class="item item-body">
-                <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
-                    <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-                </div>
             </div>
         </div>
 

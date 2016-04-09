@@ -15,9 +15,16 @@ angular.module('app.services', [])
             if (!games)
                 games = [];
 
-            if (!game.id)
+            if (!game.id) {
                 game.id = generateId();
-
+            } else {
+                var index = -1;
+                angular.forEach(games, function (g) {
+                    if (g.id === game.id)
+                        index = games.indexOf(g);
+                });
+                games.splice(index, 1);
+            }
             games.push(game);
 
             localStorage.setItem('my-games-games', JSON.stringify(games));

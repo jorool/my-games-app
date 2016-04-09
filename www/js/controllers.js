@@ -53,7 +53,7 @@ angular.module('app.controllers', [])
         
         function editGame(game) {
             $scope.creatingGame = true;
-            $scope.game = game;
+            $scope.game = angular.copy(game);
         }
 
         function getGames() {
