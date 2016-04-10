@@ -1,12 +1,26 @@
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'angular.filter'])
+'use strict';
 
-    .config(function () {
+const deps =[
+    'ionic',
+    'app.controllers',
+    'app.routes',
+    'app.services',
+    'app.directives',
+    'angular.filter',
+    'pascalprecht.translate',
+    'ngCookies'
+];
 
+angular.module('app', deps)
+
+    .config(function ($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'locale/locale-',
+            suffix: '.json'
+        });
+        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.preferredLanguage('en_US');
+        $translateProvider.useLocalStorage();
     })
 
     .run(function ($ionicPlatform) {

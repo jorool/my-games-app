@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('app.controllers', [])
 
     .controller('gamesCtrl', function ($scope, $ionicActionSheet, Platform, Game) {
@@ -109,6 +111,10 @@ angular.module('app.controllers', [])
         loadPlatforms();
     })
 
-    .controller('configCtrl', function ($scope) {
+    .controller('ConfigCtrl', function ($scope, $translate) {
+
+        this.changeLanguage = function (key) {
+            $translate.use(key);
+        };
 
     });

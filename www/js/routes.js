@@ -44,7 +44,7 @@ angular.module('app.routes', [])
                 views: {
                     'side-menu': {
                         templateUrl: 'templates/config.html',
-                        controller: 'configCtrl'
+                        controller: 'ConfigCtrl as ctrl'
                     }
                 }
             });
