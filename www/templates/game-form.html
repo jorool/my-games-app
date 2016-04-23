@@ -2,22 +2,21 @@
 
     <form name="form">
         <label class="item item-input" name="title">
-            <span class="input-label">Título</span>
+            <span class="input-label">{{'Title' | translate}}</span>
             <input type="text" ng-model="game.title" ng-required="true">
         </label>
 
         <label class="item item-select" name="platform">
-            <span class="input-label">Plataforma</span>
+            <span class="input-label">{{'Platform' | translate}}</span>
             <select ng-model="game.platform" ng-options="p as p.name for p in platforms track by p.id" ng-required="true">
-                <option value="">Select...</option>
+                <option value="">{{'Select...' | translate}}</option>
             </select>
         </label>
 
         <div class="button-bar">
-            <button class="button button-assertive button-clear button-block" ng-click="ctrl.cancel()">Cancelar</button>
-            <button class="button button-positive button-block" ng-click="ctrl.save(game)" ng-disabled="form.$invalid">Inserir</button>
+            <button class="button button-assertive button-clear button-block" ng-click="ctrl.cancel()">{{'Cancel' | translate}}</button>
+            <button class="button button-positive button-block" ng-click="ctrl.save(game)" ng-disabled="form.$invalid">{{'Save' | translate}}</button>
         </div>
     </form>
-
 
 </div>

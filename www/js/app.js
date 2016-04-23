@@ -18,7 +18,7 @@ angular.module('app', deps)
             prefix: 'locale/locale-',
             suffix: '.json'
         });
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('escape');
         $translateProvider.preferredLanguage('en_US');
         $translateProvider.useLocalStorage();
     })

@@ -14,7 +14,12 @@ angular.module('app.routes', [])
                 views: {
                     'side-menu': {
                         templateUrl: 'templates/games.html',
-                        controller: 'gamesCtrl as ctrl'
+                        controller: 'gamesCtrl as ctrl',
+                        resolve: {
+                            platforms: function (Platform) {
+                                return Platform.getMyPlatforms();
+                            }
+                        }
                     }
                 }
             })

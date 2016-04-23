@@ -1,11 +1,12 @@
 <ion-view title="{{'Config' | translate}}">
+
     <ion-content overflow-scroll="true" class="has-header">
 
         <ion-list>
             <ion-item class="item-divider">{{'Language' | translate}}</ion-item>
             <ion-list>
-                <ion-radio ng-model="choice" ng-value="" ng-click="ctrl.changeLanguage('pt_BR')">{{'Portuguese' | translate}}</ion-radio>
-                <ion-radio ng-model="choice" ng-value="'en_US'" ng-click="ctrl.changeLanguage('en_US')">{{'English' | translate}}</ion-radio>
+                <ion-radio ng-model="lang" ng-value="'pt_BR'" ng-click="ctrl.changeLanguage('pt_BR')">{{'Portuguese' | translate}}</ion-radio>
+                <ion-radio ng-model="lang" ng-value="'en_US'" ng-click="ctrl.changeLanguage('en_US')">{{'English' | translate}}</ion-radio>
             </ion-list>
         </ion-list>
 

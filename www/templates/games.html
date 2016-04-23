@@ -1,7 +1,7 @@
-<ion-view title="Meus Games">
+<ion-view title="{{'My Games' | translate}}">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <button class="button button-stable button-block icon-left ion-android-add" ng-hide="creatingGame"
-                ng-click="ctrl.createGame()">Inserir jogo
+                ng-click="ctrl.createGame()">{{'New game' | translate}}
         </button>
 
         <ng-include src="'templates/game-form.html'"></ng-include>
@@ -9,7 +9,6 @@
         <div class="list" ng-repeat="g in games track by g.id">
             <div class="item item-divider">
                 {{g.platform.name}}
-
             </div>
             <div class="item item-icon-right">
                 {{g.title}}
@@ -19,7 +18,7 @@
 
         <div class="card" ng-if="games.length == 0">
             <div class="item item-text-wrap text-center">
-                Você não tem games?  ;(
+                {{"Don't you have games? ;(" | translate}}
             </div>
         </div>
 

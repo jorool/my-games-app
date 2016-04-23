@@ -2,9 +2,9 @@
 
 angular.module('app.controllers', [])
 
-    .controller('gamesCtrl', function ($scope, $ionicActionSheet, Platform, Game) {
+    .controller('gamesCtrl', function ($scope, $ionicActionSheet, platforms, Game) {
 
-        $scope.platforms = Platform.getMyPlatforms();
+        $scope.platforms = platforms;
 
         getGames();
 
@@ -70,7 +70,7 @@ angular.module('app.controllers', [])
 
     })
 
-    .controller('platformsCtrl', function ($scope, Platform, $ionicPopup) {
+    .controller('platformsCtrl', function ($scope, Platform, $ionicPopup, Message) {
 
         function loadPlatforms() {
             Platform.getPlatforms(function (response) {
@@ -92,18 +92,12 @@ angular.module('app.controllers', [])
         $scope.togglePlatform = function (platform) {
             if (platform.selected) {
                 Platform.addToMyPlatforms(platform, function () {
-                    $ionicPopup.alert({
-                        title: 'Sucesso!',
-                        template: 'Plataforma adicionada.'
-                    });
+                    Message.success('Platform added.');
                 });
             } else {
                 Platform.removeFromMyPlatforms(platform, function () {
                     loadPlatforms();
-                    $ionicPopup.alert({
-                        title: 'Sucesso!',
-                        template: 'Plataforma removida.'
-                    });
+                    Message.success('Platform removed.');
                 });
             }
         };
@@ -112,6 +106,8 @@ angular.module('app.controllers', [])
     })
 
     .controller('ConfigCtrl', function ($scope, $translate) {
+
+        $scope.lang = $translate.use();
 
         this.changeLanguage = function (key) {
             $translate.use(key);

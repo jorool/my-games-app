@@ -2,5 +2,19 @@
   "Config": "Configurações",
   "Language": "Idioma",
   "Portuguese": "Português",
-  "English": "Inglês"
+  "English": "Inglês",
+  "About": "Sobre",
+  "My Platforms": "Minhas Plataformas",
+  "My Games": "Meus Games",
+  "New game": "Novo jogo",
+  "Don't you have games? ;(": "Você não tem games? ;(",
+  "Title": "Título",
+  "Platform": "Plataforma",
+  "Select...": "Selecione...",
+  "Cancel": "Cancelar",
+  "Save": "Inserir",
+  "Menu": "Menu",
+  "Platform added.": "Plataforma adicionada.",
+  "Platform removed.": "Plataforma removida.",
+  "Success!": "Sucesso!"
 }

@@ -44,7 +44,7 @@ angular.module('app.services', [])
         }
 
         function deleteGame(game, callback) {
-             var games = JSON.parse(localStorage.getItem('my-games-games'));
+            var games = JSON.parse(localStorage.getItem('my-games-games'));
 
             var index = -1;
             angular.forEach(games, function (g) {
@@ -128,24 +128,44 @@ angular.module('app.services', [])
             }
         }
 
-    });
+    })
 
-    // .factory('$localstorage', ['$window', function ($window) {
-    //     return {
-    //         set: function (key, value) {
-    //             $window.localStorage[key] = value;
-    //         },
-    //
-    //         get: function (key, defaultValue) {
-    //             return $window.localStorage[key] || defaultValue;
-    //         },
-    //
-    //         setObject: function (key, value) {
-    //             $window.localStorage[key] = JSON.stringify(value);
-    //         },
-    //
-    //         getObject: function (key) {
-    //             return JSON.parse($window.localStorage[key] || '{}');
-    //         }
-    //     }
-    // }]);
+    .factory('Message', ['$ionicPopup', '$translate', function ($ionicPopup, $translate) {
+
+        function _success(title, text) {
+            $ionicPopup.alert({
+                title: title,
+                template: text
+            });
+        }
+        
+        return {
+            success: function (text, title) {
+                title = title || 'Success!';
+                $translate([title, text]).then(function (translations) {
+                    _success(translations[title], translations[text]);
+                });
+            }
+        }
+
+    }]);
+
+// .factory('$localstorage', ['$window', function ($window) {
+//     return {
+//         set: function (key, value) {
+//             $window.localStorage[key] = value;
+//         },
+//
+//         get: function (key, defaultValue) {
+//             return $window.localStorage[key] || defaultValue;
+//         },
+//
+//         setObject: function (key, value) {
+//             $window.localStorage[key] = JSON.stringify(value);
+//         },
+//
+//         getObject: function (key) {
+//             return JSON.parse($window.localStorage[key] || '{}');
+//         }
+//     }
+// }]);
