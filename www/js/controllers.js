@@ -2,7 +2,15 @@
 
 angular.module('app.controllers', [])
 
-    .controller('gamesCtrl', function ($scope, $ionicActionSheet, platforms, Game) {
+    .controller('gamesCtrl', function ($scope, $ionicActionSheet, platforms, Game, $translate) {
+
+        $translate(['Edit', 'Delete', 'Modify', 'Cancel']).then(function (translations) {
+            console.log(translations);
+            $scope.Edit = translations.Edit;
+            $scope.Delete = translations.Delete;
+            $scope.Modify = translations.Modify;
+            $scope.Cancel = translations.Cancel;
+        });
 
         $scope.platforms = platforms;
 
@@ -11,19 +19,14 @@ angular.module('app.controllers', [])
         this.modify = function (game) {
             $ionicActionSheet.show({
                 buttons: [
-                    { text: '<b>Share</b>' },
-                    { text: 'Edit' }
+                    { text: $scope.Edit }
                 ],
-                destructiveText: 'Delete',
-                titleText: 'Modify ' + game.title,
-                cancelText: 'Cancel',
+                destructiveText: $scope.Delete,
+                titleText: $scope.Modify +' ' + game.title,
+                cancelText: $scope.Cancel,
                 cancel: function() {},
                 buttonClicked: function(index) {
-                    console.log(index);
-                    //0 -> share
-                    
-                    if (index == 1) editGame(game);
-                    
+                    if (index == 0) editGame(game);
                     return true;
                 },
                 destructiveButtonClicked: function() {
@@ -67,6 +70,8 @@ angular.module('app.controllers', [])
     })
 
     .controller('aboutCtrl', function ($scope) {
+    
+        $scope.version = '0.0.1';
 
     })
 

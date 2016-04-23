@@ -1,6 +1,6 @@
 {
   "name": "mygames",
-  "version": "1.1.1",
+  "version": "0.0.1",
   "description": "MyGames: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
